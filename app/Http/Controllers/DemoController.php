@@ -6,9 +6,7 @@ use Illuminate\Http\Request;
 
 class DemoController extends Controller
 {
-    function DemoAction(Request $request):string{
-        $name=$request->name;
-        $age=$request->age;
-        return "My Name is {$name}, I'm {$age} years old.";
+    function DemoAction(Request $request):array{
+        return $request->input();
     }
 }
