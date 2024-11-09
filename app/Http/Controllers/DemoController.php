@@ -6,23 +6,25 @@ use Illuminate\Http\Request;
 
 class DemoController extends Controller
 {
-    function DemoAction(Request $request):array{
-    $token = $request->header('token');
-    $pin = $request->header('pin');
-    $city=$request->input('city');
-    $postcode=$request->input('postcode');
-    $name = $request->name;
-    $age = $request->age;
+    function DemoAction(Request $request): array{
 
-    return array(
+        $photoFile=$request->file('photo');
+        $fileSize=filesize($photoFile);
+        $fileType=filetype($photoFile);
+        $fileOriginalName=$photoFile->getClientOriginalName();
+        $fileTempName=$photoFile->getFilename();
+        $fileExtension=$photoFile->extension();
+        
+    
 
-        "token"=>$token,
-        "pin"=>$pin,
-        "city"=>$city,
-        "postcode"=>$postcode,
-        "name"=>$name,
-        "age"=>$age
-
-    );
+        return array(
+            'fileSize'=>$fileSize,
+            'fileType'=>$fileType,
+            'fileOriginalName'=>$fileOriginalName,
+            'fileTempName'=>$fileTempName,
+            'fileExtension'=>$fileExtension 
+        );
     }
+
+ 
 }
