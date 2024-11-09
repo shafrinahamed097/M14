@@ -6,11 +6,23 @@ use Illuminate\Http\Request;
 
 class DemoController extends Controller
 {
-    function DemoAction(Request $request):string{
-     $firstName = $request->header("firstName");
-     $lastName = $request->header("lastName");
-     $age = $request->header("age");
+    function DemoAction(Request $request):array{
+    $token = $request->header('token');
+    $pin = $request->header('pin');
+    $city=$request->input('city');
+    $postcode=$request->input('postcode');
+    $name = $request->name;
+    $age = $request->age;
 
-     return "My Name is $firstName $lastName and I am $age years old";
+    return array(
+
+        "token"=>$token,
+        "pin"=>$pin,
+        "city"=>$city,
+        "postcode"=>$postcode,
+        "name"=>$name,
+        "age"=>$age
+
+    );
     }
 }
