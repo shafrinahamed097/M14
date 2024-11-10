@@ -7,13 +7,15 @@ use Illuminate\Http\Request;
 
 class DemoController extends Controller
 {
-    function DemoAction1(): string{
-        return redirect('/hello2');
+    function FileBinary(){
+        $filePath="upload/image/Screenshot_6.png";
+        return response()->file($filePath);
 
     }
 
-    function DemoAction2(): string{
-        return "Hello2";
+    function FileDownload(){
+        $filePath="upload/image/Screenshot_6.png";
+        return response()->download($filePath);
 
     }
 
