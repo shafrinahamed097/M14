@@ -18,5 +18,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/FileBinary', [DemoController::class, 'FileBinary']);
-Route::get('/FileDownload', [DemoController::class, 'FileDownload']);
+Route::get('/DemoAction', [DemoController::class, 'DemoAction']);
