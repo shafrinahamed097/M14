@@ -6,17 +6,14 @@ use Illuminate\Http\Request;
 
 class DemoController extends Controller
 {
-    function DemoAction(Request $request): bool{
+    function DemoAction(Request $request): array{
 
      
+ 
 
-        $photoFile = $request->file('photo');
-        $photoFile->storeAs('upload', $photoFile->getClientOriginalName());
-        $photoFile->move(public_path('upload'), $photoFile->getClientOriginalName());
+     return $request->cookie();
 
-       
-
-       return true;
+      
         
     }
 
