@@ -2,31 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class DemoController extends Controller
 {
-    function DemoAction(Request $request): array | null | int| bool | string{
+    function DemoAction(Request $request):JsonResponse{
 
-     
- 
-    $myArray=array(
-        array(
-            'city'=>'Dhaka',
-            'country'=>'Bangladesh',
-            'population'=>10000000
-        ),
-        array(
-            'city'=>'Dhaka',
-            'country'=>'Bangladesh',
-            'population'=>10000000
-        ),
+     $code=201;
+     $content=array(
+        'name'=>'mohamed',
+        'city'=>'toranto',
+        'country'=>'canada'
+     );
+     return response()->json($content, $code);
 
         
-    );
+    
      
 
-      return $myArray;
+    
         
     }
 
